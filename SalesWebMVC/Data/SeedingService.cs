@@ -18,6 +18,14 @@ namespace SalesWebMVC.Data
 
         public void Seed()
         {
+
+            if (_context.Department.Any() ||
+               _context.Seller.Any() ||
+               _context.SalesRecord.Any())
+            {
+                return; //DB has been seeded
+            }
+
             Department d1 = new Department(1, "Computers");
             Department d2 = new Department(2, "Electronics");
 
@@ -26,11 +34,11 @@ namespace SalesWebMVC.Data
 
             SalesRecord sr1 = new SalesRecord(1, new DateTime(2020, 12, 1), 3600.00, SaleStatus.BILLED, s2);
 
-            _context.Department.AddRange(d1, d2); 
-            _context.Seller.AddRange(s1, s2); 
+            _context.Department.AddRange(d1, d2);
+            _context.Seller.AddRange(s1, s2);
             _context.SalesRecord.AddRange(sr1);
-
             _context.SaveChanges();
+
         }
     }
 }
