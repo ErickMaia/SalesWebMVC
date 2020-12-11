@@ -26,5 +26,24 @@ namespace SalesWebMVC.Services
             _context.Seller.Add(obj);
             _context.SaveChanges();
         }
+
+        public Seller FindById(int id)
+        {
+            return _context.Seller.Where(x => x.Id == id).SingleOrDefault();
+        }
+
+        public void Remove(int id)
+        {
+            //A IMPLEMENTAÇÃO COMENTADA ABAIXO FOI FEITA PELO PROFESSOR NA AULA: 
+            //var obj = _context.Seller.Find(id);
+            //_context.Seller.Remove(obj);
+            //_context.SaveChanges();
+
+            //A IMPLEMENTAÇÃO ABAIXO FOI FEITA POR MIM
+            //@ErickMaia
+            _context.Seller.Remove(FindById(id));
+            _context.SaveChanges();
+        }
+
     }
 }
