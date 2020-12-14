@@ -12,6 +12,8 @@ namespace SalesWebMVC.Models
         public string Name { get; set; }
 
         [DataType(DataType.EmailAddress)]
+        [EmailAddress(ErrorMessage = "Enter a valid Email. ")]
+        [Required(ErrorMessage = "Email is required. ")]
         public string Email { get; set; }
 
         [Display(Name="Birth Date")]
@@ -22,6 +24,7 @@ namespace SalesWebMVC.Models
         [Display(Name="Base Salary")]
         [DataType(DataType.Currency)]
         [DisplayFormat(DataFormatString = "{0:F2}")]
+        [Range(100, 50000, ErrorMessage = "{0} must be between 100.00 and 50,000.00. ")]
         public double BaseSalary { get; set; }
 
         public Department Department { get; set; }
