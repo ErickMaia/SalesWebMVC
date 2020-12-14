@@ -6,7 +6,6 @@ using SalesWebMVC.Data;
 using SalesWebMVC.Models;
 using Microsoft.EntityFrameworkCore;
 using SalesWebMVC.Services.Exceptions;
-using Microsoft.EntityFrameworkCore;
 
 namespace SalesWebMVC.Services
 {
